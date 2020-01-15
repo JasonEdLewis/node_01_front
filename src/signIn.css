@@ -1,0 +1,11 @@
+.sign-in-form{
+background-color: rgb(220, 240, 245);
+padding: 10%;
+margin: 5%;
+font-size: larger;
+border: 1px solid black;
+
+}
+.register-on-sigin-page:hover{
+    color: royalblue;
+}

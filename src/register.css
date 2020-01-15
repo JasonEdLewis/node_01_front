@@ -1,0 +1,10 @@
+.register-form {
+    background-color: rgb(233, 233, 233);
+padding: 5%;
+margin: 5%;
+font-size: larger;
+border: 1px solid black;
+}
+.signIn-on-register-page:hover {
+    color: red;
+}

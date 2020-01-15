@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import SignIn from './signIn';
+import Home from "./Home";
+import Register from './Register';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    user: {
+      id: "",
+      name: "",
+      email: "",
+      entries: 0,
+
+
+    }
+  }
+
+  updateUser = (user) => {
+    this.setState({ user })
+  }
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <div className="App">
+
+            <Route exact path="/"
+              render={routerProps => <SignIn {...routerProps} />} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/register"
+              render={routerProps => <Register {...routerProps} updateUser={this.updateUser} />} />
+
+          </div>
+        </Switch>
+      </Router>
+    );
+
+  }
+
 }
 
 export default App;
